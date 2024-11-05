@@ -2,8 +2,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -97,7 +99,19 @@ namespace Algoritms_Lab3
 
         private void MeasureButton_Click(object sender, RoutedEventArgs e)
         {
+            Stopwatch stopwatch = new Stopwatch();
 
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+
+                stopwatch.Start();
+                string[] commands = File.ReadAllText(openFileDialog.FileName).Split(' ');
+                ExecuteCommands(commands);
+            }
+            stopwatch.Stop();
+            ResultTextBox.AppendText("Execution time: " + stopwatch.Elapsed.TotalMilliseconds + " ms\n");
         }
 
         private void LoadFileButton_Click(object sender, RoutedEventArgs e)
@@ -113,10 +127,16 @@ namespace Algoritms_Lab3
 
         private void InfixToPostfixButton_Click(object sender, RoutedEventArgs e)
         {
-
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string[] commands = File.ReadAllText(openFileDialog.FileName).Split(' ');
+                ResultTextBox.AppendText("Постфиксная запись " + ConvertToPostfix(File.ReadAllText(openFileDialog.FileName)) + "\n");
+            }            
         }
 
-        private void ExecuteCommands(string[] commands)
+        void ExecuteCommands(string[] commands)
         {
             ResultTextBox.Clear();
 
@@ -175,6 +195,138 @@ namespace Algoritms_Lab3
                     }
                 }                
             }
+        }
+
+        private void CalculationButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string[] tokens = File.ReadAllText(openFileDialog.FileName).Split(' ');
+                Calculation(tokens);
+            }
+        }
+
+        void Calculation(string[] tokens)
+        {            
+            foreach (string token in tokens)
+            {
+                if (int.TryParse(token, out int number)) // Число
+                {
+                    Stack.Push(number);
+                }
+                else // Оператор
+                {
+                    switch (token)
+                    {
+                        case "+":
+                            Stack.Push((int)Stack.Pop() + (int)Stack.Pop());
+                            break;
+                        case "-":
+                            {
+                                int b = (int)Stack.Pop();
+                                int a = (int)Stack.Pop();
+                                Stack.Push(a - b);
+                            }
+                            break;
+                        case "*":
+                            Stack.Push((int)Stack.Pop() * (int)Stack.Pop());
+                            break;
+                        case "/":
+                            {
+                                int b = (int)Stack.Pop();
+                                int a = (int)Stack.Pop();
+                                Stack.Push(a / b);
+                            }
+                            break;
+                        case "^":
+                            {
+                                int b = (int)Stack.Pop();
+                                int a = (int)Stack.Pop();
+                                Stack.Push(Math.Pow(a, b));
+                            }
+                            break;
+                        case "ln":
+                            Stack.Push(Math.Log((int)Stack.Pop()));
+                            break;
+                        case "cos":
+                            Stack.Push(Math.Cos((int)Stack.Pop()));
+                            break;
+                        case "sin":
+                            Stack.Push(Math.Sin((int)Stack.Pop()));
+                            break;
+                        case "sqrt":
+                            Stack.Push(Math.Sqrt((int)Stack.Pop()));
+                            break;
+                        default:
+                            ResultTextBox.AppendText("Неизвестная операция: " + token + "\n");
+                            break;
+                    }
+                }
+            }
+        }
+
+
+        static int GetPrecedence(char op)
+        {
+            return op == '+' || op == '-' ? 1 : op == '*' || op == '/' ? 2 : 0;
+        }
+        static bool IsOperator(char c)
+        {
+            return c == '+' || c == '-' || c == '*' || c == '/';
+        }
+        public static string ConvertToPostfix(string infix)
+        {
+            List<string> output = new List<string>();
+
+            for (int i = 0; i < infix.Length; i++)
+            {
+                char token = infix[i];
+
+                // Если токен — цифра, добавляем его в выходной список
+                if (char.IsDigit(token))
+                {
+                    string number = token.ToString();
+                    while (i + 1 < infix.Length && char.IsDigit(infix[i + 1]))
+                    {
+                        number += infix[++i];
+                    }
+                    output.Add(number);
+                }
+                // Если токен — оператор
+                else if (IsOperator(token))
+                {
+                    while (!Stack.IsEmpty() && IsOperator((char)Stack.Top()) &&
+                           GetPrecedence((char)Stack.Top()) >= GetPrecedence(token))
+                    {
+                        output.Add(Stack.Pop().ToString());
+                    }
+                    Stack.Push(token);
+                }
+                // Если токен — открывающая скобка
+                else if (token == '(')
+                {
+                    Stack.Push(token);
+                }
+                // Если токен — закрывающая скобка
+                else if (token == ')')
+                {
+                    while (!Stack.IsEmpty() && (char)Stack.Top() != '(')
+                    {
+                        output.Add(Stack.Pop().ToString());
+                    }
+                    Stack.Pop(); // Удаляем '(' из стека
+                }
+            }
+
+            // Переносим все оставшиеся операторы из стека в выходной список
+            while (!Stack.IsEmpty())
+            {
+                output.Add(Stack.Pop().ToString());
+            }
+
+            return string.Join(" ", output);
         }
     }
 }
