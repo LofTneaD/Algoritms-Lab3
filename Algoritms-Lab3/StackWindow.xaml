@@ -25,6 +25,7 @@
             <Button x:Name="MeasureButton" Content="MeasureLaunch" Click="MeasureButton_Click" Margin="5" Width="120"/>
             <Button x:Name="LoadFileButton" Content="LoadFile" Click="LoadFileButton_Click" Margin="5" Width="120"/>
             <Button x:Name="InfixToPostfixButton" Content="InfixToPostfix" Click="InfixToPostfixButton_Click" Margin="5" Width="120"/>
+            <Button x:Name="CalculationButton" Content="Calcutaion" Click="CalculationButton_Click" Margin="5" Width="120"/>
             
             <StackPanel Orientation="Horizontal" Visibility="Collapsed" x:Name="PushInputPanel" Margin="5">
                 <TextBox x:Name="PushInputBox" Width="60" Margin="5"/>

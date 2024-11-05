@@ -37,7 +37,6 @@ namespace Algoritms_Lab3
             return stack[stack.Count - 1];
         }
 
-        // Проверка, пуст ли стек
         public static bool IsEmpty()
         {
             return stack.Count == 0;
