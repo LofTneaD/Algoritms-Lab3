@@ -11,7 +11,6 @@ public partial class QueueWindow : Window
     }
     
     private List<object> _items; // Хранение элементов очереди
-
     
     // Вставка элемента
     public void Enqueue(object item)

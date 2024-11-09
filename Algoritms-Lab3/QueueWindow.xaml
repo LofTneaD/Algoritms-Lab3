@@ -14,7 +14,6 @@
             <ColumnDefinition Width="*" />
             <!-- Столбец для вывода результата -->
         </Grid.ColumnDefinitions>
-
         
         <!-- Левая панель с кнопками -->
         <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
