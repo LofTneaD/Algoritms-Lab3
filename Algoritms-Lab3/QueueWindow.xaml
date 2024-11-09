@@ -1,0 +1,38 @@
+﻿<Window x:Class="Algoritms_Lab3.QueueWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Algoritms_Lab3"
+        mc:Ignorable="d"
+        Title="QueueWindow" Height="450" Width="800">
+    <Grid>
+        <!-- Определение двух столбцов -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <!-- Столбец для кнопок -->
+            <ColumnDefinition Width="*" />
+            <!-- Столбец для вывода результата -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Левая панель с кнопками -->
+        <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <Button x:Name="PushButton" Content="Push"  Margin="5" Width="120"/>
+            <Button x:Name="DequeueButton" Content="Dequeue (удаление)"  Margin="5" Width="120"/>
+            <Button x:Name="TopButton" Content="TopElement"  Margin="5" Width="120"/>
+            <Button x:Name="isEmptyButton" Content="isEmpty" Margin="5" Width="120"/>
+            <Button x:Name="PrintButton" Content="Print" Margin="5" Width="120"/>
+            
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed" x:Name="PushInputPanel" Margin="5">
+                <TextBox x:Name="PushInputBox" Width="60" Margin="5"/>
+                <Button Content="OK" Width="40"/>
+            </StackPanel>
+            
+        </StackPanel>
+
+        <!-- Правая панель для отображения результатов -->
+        <TextBox x:Name="ResultTextBox" Grid.Column="1" Margin="10"
+                 VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap" IsReadOnly="True" />
+    </Grid>
+</Window>
