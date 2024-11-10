@@ -68,4 +68,16 @@ public partial class Queue2ListWindow : Window
         public string Print() => string.Join(", ", _items);
     }
 
+    private void isEmpty_Click(object sender, RoutedEventArgs e)
+    {
+        bool empty = listQueue.IsEmpty();
+        if (empty)
+        {
+            Output.AppendText("\n Очередь пуста");
+        }
+        else
+        {
+            Output.AppendText("\n Очередь НЕ пуста");
+        }
+    }
 }

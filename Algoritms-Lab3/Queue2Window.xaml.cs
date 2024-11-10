@@ -64,4 +64,15 @@ public partial class Queue2Window : Window
         }
     }
 
+    private void isEmpty_Click(object sender, RoutedEventArgs e)
+    {
+        if (queue.Count == 0)
+        {
+            Output.AppendText("\n Очередь пуста");
+        }
+        else
+        {
+            Output.AppendText("\n Очередь НЕ пуста");
+        }
+    }
 }
