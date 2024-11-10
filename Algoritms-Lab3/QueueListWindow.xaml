@@ -1,0 +1,31 @@
+﻿<Window x:Class="Algoritms_Lab3.QueueListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Algoritms_Lab3"
+        mc:Ignorable="d"
+        Title="QueueListWindow" Height="450" Width="800">
+    <Grid>
+        
+        <!-- Определение двух столбцов -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <!-- Столбец для кнопок -->
+            <ColumnDefinition Width="*" />
+            <!-- Столбец для вывода результата -->
+        </Grid.ColumnDefinitions>
+        
+        <TextBox x:Name="InputValue" Width="100" Height="30" VerticalAlignment="Top" Margin="0,10,0,0" />
+
+        <!-- Кнопки для управления очередью -->
+        <Button Content="Добавить" Click="Add_Click" Width="100" Height="30" VerticalAlignment="Top" Margin="0,50,0,0" />
+        <Button Content="Удалить" Click="Remove_Click" Width="100" Height="30" VerticalAlignment="Top" Margin="0,90,0,0" />
+        <Button Content="Первый" Click="Peek_Click" Width="100" Height="30" VerticalAlignment="Top" Margin="0,130,0,0" />
+        <Button Content="Печать" Click="Print_Click" Width="100" Height="30" VerticalAlignment="Top" Margin="0,170,0,0" />
+
+        <TextBox x:Name="Output" Grid.Column="1" VerticalAlignment="Top"  TextWrapping="Wrap" IsReadOnly="True" Height="350" Width="600" Margin="5"/>
+        
+
+    </Grid>
+</Window>
