@@ -29,13 +29,13 @@ namespace Algoritms_Lab3
 
         private void Button2List_Click(object sender, RoutedEventArgs e)
         {
-            QueueListWindow queueListWindow = new QueueListWindow();
+            Queue2Window queueListWindow = new Queue2Window();
             queueListWindow.Show();
         }
         
         private void Button2Queue_Click(object sender, RoutedEventArgs e)
         {
-            QueueWindow queueWindow = new QueueWindow();
+            Queue2ListWindow queueWindow = new Queue2ListWindow();
             queueWindow.Show();
         }
 

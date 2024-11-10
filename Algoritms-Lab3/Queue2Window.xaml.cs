@@ -4,11 +4,11 @@ using System.Windows;
 
 namespace Algoritms_Lab3;
 
-public partial class QueueListWindow : Window
+public partial class Queue2Window : Window
 {
     private Queue<object> queue = new Queue<object>();
     
-    public QueueListWindow()
+    public Queue2Window()
     {
         InitializeComponent();
         

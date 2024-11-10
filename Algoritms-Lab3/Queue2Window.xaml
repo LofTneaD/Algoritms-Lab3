@@ -1,4 +1,4 @@
-﻿<Window x:Class="Algoritms_Lab3.QueueListWindow"
+﻿<Window x:Class="Algoritms_Lab3.Queue2Window"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
