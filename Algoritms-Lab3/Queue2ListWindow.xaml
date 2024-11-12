@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Algoritms_Lab3"
         mc:Ignorable="d"
-        Title="QueueWindow" Height="450" Width="800">
+        Title="QueueWindow" Height="550" Width="800">
     <Grid>
         
         <!-- Определение двух столбцов -->
@@ -23,6 +23,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         
         <TextBox x:Name="InputValue" Width="100" Height="30" VerticalAlignment="Top" Margin="0,10,0,0" />
@@ -34,8 +36,15 @@
         <Button Grid.Row="4" Grid.Column="0" Content="Пустой?" Click="isEmpty_Click" Width="100" Height="30" VerticalAlignment="Top"  />
         <Button Grid.Row="5" Grid.Column="0" Content="Печать" Click="Print_Click" Width="100" Height="30" VerticalAlignment="Top" />
         <Button Grid.Row="6" Grid.Column="0" Content="Файл" Click="LoadFileButton_Click" Width="100" Height="30" VerticalAlignment="Top" />
+        <Button Grid.Row="7" Grid.Column="0" x:Name="MeasureButton" Content="MeasureLaunch" Click="MeasureButton_Click" Height="30" Width="100" VerticalAlignment="Top"/>
 
         <TextBox x:Name="Output" Grid.Column="1" Grid.Row="0" Grid.RowSpan="6" VerticalAlignment="Top"  TextWrapping="Wrap" IsReadOnly="True" Height="350" Width="600" Margin="5"/>
+        <StackPanel Grid.Column="0" Grid.Row="8" Orientation="Horizontal" Visibility="Collapsed" x:Name="MeasureInputPanel" Width="100" Height="30">
+            <TextBox x:Name="MeasureInputBox" Width="50" Height="30"/>
+            <Button Content="OK" Click="ConfirmMeasureButton_Click" Width="20" Height="30"/>
+        </StackPanel>
+        
+        <TextBox x:Name="OutputResult" Grid.Column="1" Grid.Row="0" Grid.RowSpan="9" VerticalAlignment="Top"  TextWrapping="Wrap" IsReadOnly="True" Height="350" Width="600" Margin="5"/>
 
     </Grid>
 </Window>

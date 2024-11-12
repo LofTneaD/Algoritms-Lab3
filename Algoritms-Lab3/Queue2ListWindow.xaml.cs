@@ -163,4 +163,63 @@ public partial class Queue2ListWindow : Window
                 }                
             }
         }
+        // для результатов 
+        
+        private void MeasureButton_Click(object sender, RoutedEventArgs e)
+        {
+            MeasureInputPanel.Visibility = Visibility.Visible;
+            MeasureInputBox.Focus();
+        }
+        private void ConfirmMeasureButton_Click(object sender, RoutedEventArgs e) /////<<<----
+        {
+            int.TryParse(MeasureInputBox.Text.Trim(), out int input);
+
+            double[] time = new double[input];
+            Stopwatch stopwatch = new Stopwatch();
+
+            MeasureInputBox.Clear();
+            MeasureInputPanel.Visibility = Visibility.Collapsed;
+
+            string[][] commands = CommandGenerator.MakeMassives(input);
+
+            for (int i = 0; i < input; i++)
+            {
+                double totalTime = 0;
+
+                for (int j = 0; j < 5; j++)
+                {
+                    stopwatch.Restart();
+
+                    ExecuteCommands(commands[i]);
+
+                    stopwatch.Stop();
+
+                    totalTime += stopwatch.Elapsed.TotalMilliseconds;
+                }
+                time[i] = totalTime / 5;
+            }
+            SaveResultsToFile(time);
+        }
+        public static void SaveResultsToFile(double[] results)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+
+
+            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            saveFileDialog.Title = "Save Results to File";
+            saveFileDialog.DefaultExt = "txt";
+            saveFileDialog.FileName = "results.txt";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                string filePath = saveFileDialog.FileName;
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    foreach (double line in results)
+                    {
+                        writer.WriteLine(line);
+                    }
+                }
+            }
+        }
 }
