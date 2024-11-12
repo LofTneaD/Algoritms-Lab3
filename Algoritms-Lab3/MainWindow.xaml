@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:Algoritms_Lab3"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="158" Width="559">
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="600">
         <Button x:Name="Button1" Content="Открыть Окно 1" Click="Button1_Click" Margin="10"/>
-        <Button x:Name="Button2" Content="Открыть Окно 2" Click="Button2_Click" Margin="10"/>
+        <Button x:Name="Button2" Content="Открыть Окно 2 через List" Click="Button2List_Click" Margin="10"/>
+        <Button x:Name="Button2Queue" Content="Открыть Окно 2 через Queue" Click="Button2Queue_Click" Margin="10"/>
         <Button x:Name="Button3" Content="Открыть Окно 3" Click="Button3_Click" Margin="10"/>
         <Button x:Name="Button4" Content="Открыть Окно 4" Click="Button4_Click" Margin="10"/>
     </StackPanel>
