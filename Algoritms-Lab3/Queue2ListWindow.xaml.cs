@@ -121,7 +121,7 @@ public partial class Queue2ListWindow : Window
                             break;
 
                         case "3"://Top
-                            if (listQueue.IsEmpty())
+                            if (!listQueue.IsEmpty())
                             {
                                 object top = listQueue.Peek(); // глянуть верхний
                                 if (top == null)
