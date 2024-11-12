@@ -13,7 +13,6 @@ public partial class Queue2Window : Window
     public Queue2Window()
     {
         InitializeComponent();
-        
     }
     // Добавление элемента
     private void Add_Click(object sender, RoutedEventArgs e)
@@ -22,7 +21,6 @@ public partial class Queue2Window : Window
         queue.Enqueue(value); // Добавляем в очередь
         Output.Text += $"\n Элемент {value} добавлен в очередь."; // Обновляем текст
         InputValue.Clear(); // Очищаем поле ввода
-
     }
 
 // Удаление элемента
@@ -71,6 +69,7 @@ public partial class Queue2Window : Window
         if (queue.Count == 0)
         {
             Output.AppendText("\n Очередь пуста");
+
         }
         else
         {
@@ -92,58 +91,69 @@ public partial class Queue2Window : Window
         void ExecuteCommands(string[] commands)
         {
             Output.Clear();
-
+            
             for (int i = 0; i < commands.Length; i++)
             {
                 if (commands[i].Length > 1)//Push
                 {
                     string command = commands[i].Substring(2);
-                    Stack.Push(command);
-                    Output.AppendText("Добавлен: " + command + "\n");
+                    queue.Enqueue(command);
+                    Output.AppendText("\nДобавлен: " + command);
                 }
                 else 
                 {
                     switch (commands[i])
                     {
                         case "2"://Pop
-                            object pop = Stack.Pop();
+                            object pop = queue.Dequeue(); // удаляем
                             if (pop == null)
                             {
-                                Output.AppendText("Очередь пуста" + "\n");
+                                Output.AppendText("\nОчередь пуста");
                             }
                             else
                             {
-                                Output.AppendText("Вынесено: " + pop + "\n");
+                                Output.AppendText("\nВынесено: " + pop);
                             }
                             break;
 
                         case "3"://Top
-                            object top = Stack.Top();
-                            if (top == null)
-                                Output.AppendText("Очередь пуста" + "\n");
-                            else
-                                Output.AppendText("Верхний элемент: " + top + "\n");
-                            break;
-
-                        case "4"://isEmpty
-                            bool empty = Stack.IsEmpty();
-                            if (empty)
-                                Output.AppendText("Очередь пуста" + "\n");
-                            else
-                                Output.AppendText("Очередь НЕ пуста" + "\n");
-                            break;
-
-                        case "5"://Print
-                            Stack.Print();
-                            List<object> stack = Stack.Print();
-                            for (int j = stack.Count - 1; j >= 0; j--)
+                            if (queue.Count != 0)
                             {
-                                Output.AppendText(stack[j] + "\n");
+                                object top = queue.Peek(); // глянуть верхний
+                                if (top == null)
+                                    Output.AppendText("\nОчередь пуста");
+                                else
+                                    Output.AppendText("\nВерхний элемент: " + top);
+                            }
+                            else
+                            {
+                                Output.AppendText("\nОчередь пуста");
                             }
                             break;
 
+                        case "4"://isEmpty
+                            if (queue.Count == 0)
+                            {
+                                Output.AppendText("\n Очередь пуста");
+
+                            }
+                            else
+                            {
+                                Output.AppendText("\n Очередь НЕ пуста");
+                            }
+                            break;
+                        case "5"://Print
+                            if (queue.Count > 0)
+                            {
+                                Output.Text += "\n Элементы очереди: " + string.Join(", ", queue);
+                            }
+                            else
+                            {
+                                Output.Text += "\n Очередь пуста";
+                            }
+                            break;
                         default:
-                            Output.AppendText($"Неизвестная команда: {commands[i]}\n");
+                            Output.AppendText($"\nНеизвестная команда: {commands[i]}");
                             break;
                     }
                 }                

@@ -80,4 +80,87 @@ public partial class Queue2ListWindow : Window
             Output.AppendText("\n Очередь НЕ пуста");
         }
     }
+
+    private void LoadFileButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string[] commands = File.ReadAllText(openFileDialog.FileName).Split(' ');
+                ExecuteCommands(commands);
+            }
+        }
+
+        void ExecuteCommands(string[] commands)
+        {
+            Output.Clear();
+            
+            for (int i = 0; i < commands.Length; i++)
+            {
+                if (commands[i].Length > 1)//Push
+                {
+                    string command = commands[i].Substring(2);
+                    listQueue.Enqueue(command);
+                    Output.AppendText("\nДобавлен: " + command);
+                }
+                else 
+                {
+                    switch (commands[i])
+                    {
+                        case "2"://Pop
+                            object pop = listQueue.Dequeue(); // удаляем
+                            if (pop == null)
+                            {
+                                Output.AppendText("\nОчередь пуста");
+                            }
+                            else
+                            {
+                                Output.AppendText("\nВынесено: " + pop);
+                            }
+                            break;
+
+                        case "3"://Top
+                            if (listQueue.IsEmpty())
+                            {
+                                object top = listQueue.Peek(); // глянуть верхний
+                                if (top == null)
+                                    Output.AppendText("\nОчередь пуста");
+                                else
+                                    Output.AppendText("\nВерхний элемент: " + top);
+                            }
+                            else
+                            {
+                                Output.AppendText("\nОчередь пуста");
+                            }
+                            break;
+
+                        case "4"://isEmpty
+                            if (listQueue.IsEmpty())
+                            {
+                                Output.AppendText("\n Очередь пуста");
+
+                            }
+                            else
+                            {
+                                Output.AppendText("\n Очередь НЕ пуста");
+                            }
+                            break;
+                        case "5"://Print
+                            if (listQueue.IsEmpty())
+                            {
+                                Output.Text += "\n Элементы очереди: " + string.Join(", ", listQueue);
+                            }
+                            else
+                            {
+                                Output.Text += "\n Очередь пуста";
+                            }
+                            break;
+                        default:
+                            Output.AppendText($"\nНеизвестная команда: {commands[i]}");
+                            break;
+                    }
+                }                
+            }
+        }
 }
