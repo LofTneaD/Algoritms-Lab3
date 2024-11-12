@@ -7,9 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="158" Width="559">
-        <Button x:Name="Button1" Content="Открыть Окно 1" Click="Button1_Click" Margin="10"/>
+        <Button x:Name="Button1" Content="Stack" Click="Button1_Click" Margin="10"/>
         <Button x:Name="Button2" Content="Открыть Окно 2" Click="Button2_Click" Margin="10"/>
-        <Button x:Name="Button3" Content="Открыть Окно 3" Click="Button3_Click" Margin="10"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="Button3_1" Content="List" Click="Button3_1_Click" Margin="5" Width="127"/>
+            <Button x:Name="Button3_2" Content="Stack" Click="Button3_2_Click" Margin="5" Width="127"/>
+            <Button x:Name="Button3_3" Content="Queue" Click="Button3_3_Click" Margin="5" Width="127"/>
+            <Button x:Name="Button3_4" Content="Tree" Click="Button3_4_Click" Margin="5" Width="127"/>
+        </StackPanel>
         <Button x:Name="Button4" Content="Открыть Окно 4" Click="Button4_Click" Margin="10"/>
     </StackPanel>
 </Window>

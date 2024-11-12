@@ -31,12 +31,29 @@ namespace Algoritms_Lab3
         {
 
         }
-
-        private void Button3_Click(object sender, RoutedEventArgs e)
+        private void Button3_1_Click(object sender, RoutedEventArgs e)
         {
-
+            ExampleListWindow exampleListWindow = new ExampleListWindow();
+            exampleListWindow.Show();
         }
 
+        private void Button3_2_Click(object sender, RoutedEventArgs e)
+        {
+            ExampleStackWindow exampleStackWindow = new ExampleStackWindow();
+            exampleStackWindow.Show();
+        }
+
+        private void Button3_3_Click(object sender, RoutedEventArgs e)
+        {
+            ExampleQueueWindow exampleQueueWindow = new ExampleQueueWindow();
+            exampleQueueWindow.Show();
+        }
+
+        private void Button3_4_Click(object sender, RoutedEventArgs e)
+        {
+            ExampleTreeWindow exampleTreeWindow = new ExampleTreeWindow();
+            exampleTreeWindow.Show();
+        }
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
 
