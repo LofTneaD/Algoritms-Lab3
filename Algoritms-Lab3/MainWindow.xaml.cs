@@ -56,7 +56,8 @@ namespace Algoritms_Lab3
         }
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-
+            NodeWindow nodeWindow = new NodeWindow();
+            nodeWindow.Show();
         }
     }
 }
