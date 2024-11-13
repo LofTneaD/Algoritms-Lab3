@@ -23,6 +23,7 @@
             <Button x:Name="isEmptyButton" Content="isEmpty" Click="isEmptyButton_Click" Margin="5" Width="120"/>
             <Button x:Name="PrintButton" Content="Print" Click="PrintButton_Click" Margin="5" Width="120"/>
             <Button x:Name="MeasureButton" Content="MeasureLaunch" Click="MeasureButton_Click" Margin="5" Width="120"/>
+            <Button x:Name="MeasureFileButton" Content="MeasureFile" Click="MeasureFileButton_Click" Margin="5" Width="120"/>
             <Button x:Name="LoadFileButton" Content="LoadFile" Click="LoadFileButton_Click" Margin="5" Width="120"/>
             <Button x:Name="InfixToPostfixButton" Content="InfixToPostfix" Click="InfixToPostfixButton_Click" Margin="5" Width="120"/>
             <Button x:Name="CalculationButton" Content="Calcutaion" Click="CalculationButton_Click" Margin="5" Width="120"/>
@@ -31,7 +32,11 @@
                 <TextBox x:Name="PushInputBox" Width="60" Margin="5"/>
                 <Button Content="OK" Click="ConfirmPushButton_Click" Width="40"/>
             </StackPanel>
-            
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed" x:Name="MeasureInputPanel" Margin="5">                
+                <TextBox x:Name="MeasureInputBox" Width="60" Margin="5"/>
+                <Button Content="OK" Click="ConfirmMeasureButton_Click" Width="40"/>
+            </StackPanel>
+
         </StackPanel>
 
         <!-- Правая панель для отображения результатов -->
