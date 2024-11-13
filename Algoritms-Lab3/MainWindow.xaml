@@ -1,16 +1,22 @@
-﻿<Window x:Class="Algoritms_Lab3.MainWindow"
+<Window x:Class="Algoritms_Lab3.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Algoritms_Lab3"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800">      
+
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="600">
-        <Button x:Name="Button1" Content="Открыть Окно 1" Click="Button1_Click" Margin="10"/>
+        <Button x:Name="Button1" Content="Stack" Click="Button1_Click" Margin="10"/>
         <Button x:Name="Button2" Content="Открыть Окно 2 через List" Click="Button2List_Click" Margin="10"/>
         <Button x:Name="Button2Queue" Content="Открыть Окно 2 через Queue" Click="Button2Queue_Click" Margin="10"/>
-        <Button x:Name="Button3" Content="Открыть Окно 3" Click="Button3_Click" Margin="10"/>
-        <Button x:Name="Button4" Content="Открыть Окно 4" Click="Button4_Click" Margin="10"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="Button3_1" Content="List" Click="Button3_1_Click" Margin="5" Width="127"/>
+            <Button x:Name="Button3_2" Content="Stack" Click="Button3_2_Click" Margin="5" Width="127"/>
+            <Button x:Name="Button3_3" Content="Queue" Click="Button3_3_Click" Margin="5" Width="127"/>
+            <Button x:Name="Button3_4" Content="Tree" Click="Button3_4_Click" Margin="5" Width="127"/>
+        </StackPanel>
+        <Button x:Name="Button4" Content="Node" Click="Button4_Click" Margin="10"/>
     </StackPanel>
 </Window>
