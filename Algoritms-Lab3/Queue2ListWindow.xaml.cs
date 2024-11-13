@@ -109,17 +109,13 @@ public partial class Queue2ListWindow : Window
                     switch (commands[i])
                     {
                         case "2"://Pop
-                            object pop = listQueue.Dequeue(); // удаляем
-                            if (pop == null)
-                            {
-                                Output.AppendText("\nОчередь пуста");
-                            }
-                            else
-                            {
-                                Output.AppendText("\nВынесено: " + pop);
+                            if (!listQueue.IsEmpty()) {
+                                object value = listQueue.Dequeue();
+                                Output.AppendText(value.ToString());
+                            } else {
+                                Output.AppendText("Очередь пуста");
                             }
                             break;
-
                         case "3"://Top
                             if (!listQueue.IsEmpty())
                             {
