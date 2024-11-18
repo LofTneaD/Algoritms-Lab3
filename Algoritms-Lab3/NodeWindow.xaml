@@ -20,6 +20,11 @@
         <Button Name="DoubleListButton" Content="Double List" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Click="DoubleListButton_Click" Margin="10,210,0,0"/>
         <Button Name="SwapButton" Content="Swap Elements" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Click="SwapButton_Click" Margin="170,210,0,0"/>
 
+        <Button Name="ShowListButton" Content="Show List" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Click="ShowListButton_Click" Margin="620,20,0,0"/>
+
+        <TextBox Name="InputTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Margin="620,115,0,0" Text="Enter value"/>
+        <Button Name="AddElementButton" Content="Add Element" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Height="30" Click="AddElementButton_Click" Margin="620,65,0,0"/>
+
         <TextBox Name="OutputTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Width="760" Height="250" Margin="10,250,10,10" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
     </Grid>
 </Window>

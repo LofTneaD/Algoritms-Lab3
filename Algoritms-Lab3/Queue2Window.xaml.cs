@@ -106,25 +106,24 @@ public partial class Queue2Window : Window
                     switch (commands[i])
                     {
                         case "2"://Pop
-                            object pop = queue.Dequeue(); // удаляем
-                            if (pop == null)
+                                                    
+                            if (queue.Count != 0)
                             {
-                                Output.AppendText("\nОчередь пуста");
+                                object pop = queue.Peek(); // глянуть верхний  
+                                Output.AppendText("\nВынесено: " + pop);
+                                queue.Dequeue(); // удаляем
                             }
                             else
                             {
-                                Output.AppendText("\nВынесено: " + pop);
+                                Output.AppendText("\nОчередь пуста");
                             }
                             break;
 
                         case "3"://Top
                             if (queue.Count != 0)
                             {
-                                object top = queue.Peek(); // глянуть верхний
-                                if (top == null)
-                                    Output.AppendText("\nОчередь пуста");
-                                else
-                                    Output.AppendText("\nВерхний элемент: " + top);
+                                object top = queue.Peek(); // глянуть верхний                                
+                                Output.AppendText("\nВерхний элемент: " + top);
                             }
                             else
                             {

@@ -18,5 +18,6 @@
             <Button x:Name="Button3_4" Content="Tree" Click="Button3_4_Click" Margin="5" Width="127"/>
         </StackPanel>
         <Button x:Name="Button4" Content="Node" Click="Button4_Click" Margin="10"/>
+        <Button x:Name="Button5" Content="Tree" Click="Button5_Click" Margin="10"/>
     </StackPanel>
 </Window>
