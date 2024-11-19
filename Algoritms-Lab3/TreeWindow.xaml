@@ -1,0 +1,18 @@
+﻿<Window x:Class="Algoritms_Lab3.TreeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Algoritms_Lab3"
+        mc:Ignorable="d"
+        Title="TreeWindow" Height="450" Width="800">
+    <Grid>
+        <TreeView Name="TreeViewControl" HorizontalAlignment="Left" Width="300" />
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" Margin="10">
+            <TextBox Name="NodeNameTextBox" Width="120" Margin="0,0,0,10" Text="Имя узла"/>
+            <Button Content="Добавить узел" Width="120" Click="OnAddNodeClick"/>
+            <Button Content="Удалить узел" Width="120" Margin="0,10,0,0" Click="OnDeleteNodeClick"/>
+            <Button Content="Обойти дерево" Width="120" Margin="0,10,0,0" Click="OnTraverseTreeClick"/>
+        </StackPanel>
+    </Grid>
+</Window>

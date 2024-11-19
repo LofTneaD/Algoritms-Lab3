@@ -66,5 +66,11 @@ namespace Algoritms_Lab3
             NodeWindow nodeWindow = new NodeWindow();
             nodeWindow.Show();
         }
+
+        private void Button5_Click(object sender, RoutedEventArgs e)
+        {
+            TreeWindow treeWindow = new TreeWindow();
+            treeWindow.Show();
+        }
     }
 }

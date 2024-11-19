@@ -25,6 +25,27 @@ namespace Algoritms_Lab3
             InitializeComponent();
         }
 
+        // Обработчик для кнопки "Показать список"
+        private void ShowListButton_Click(object sender, RoutedEventArgs e)
+        {
+            OutputTextBox.Text = list.GetAllElements();
+        }
+
+        // Обработчик для кнопки "Добавить элемент"
+        private void AddElementButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(InputTextBox.Text, out int value))
+            {
+                list.Append(value);
+                OutputTextBox.Text = $"Added element: {value}";
+                InputTextBox.Clear(); // Очищаем текстовое поле после добавления
+            }
+            else
+            {
+                OutputTextBox.Text = "Invalid input. Please enter an integer.";
+            }
+        }
+
         // 1. Переворачивает список
         private void ReverseButton_Click(object sender, RoutedEventArgs e)
         {

@@ -30,6 +30,22 @@ namespace Algoritms_Lab3
         {
             Head = null;
         }
+        public string GetAllElements()
+        {
+            if (Head == null)
+                return "List is empty.";
+
+            Node current = Head;
+            string result = "";
+
+            while (current != null)
+            {
+                result += current.Data + (current.Next != null ? ", " : "");
+                current = current.Next;
+            }
+
+            return result;
+        }
 
         public void Append(int data)
         {

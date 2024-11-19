@@ -58,9 +58,14 @@ public partial class Queue2ListWindow : Window
         public void Enqueue(object item) => _items.Add(item);
         public object Dequeue()
         {
-            var item = _items[0];
-            _items.RemoveAt(0);
-            return item;
+            if (_items != null && _items.Count != 0)
+            {
+                var item = _items[0];
+                _items.RemoveAt(0);
+                return item;
+            }
+            else
+                return null;            
         }
 
         public object Peek() => _items[0];
